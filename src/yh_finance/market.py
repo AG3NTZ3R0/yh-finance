@@ -20,6 +20,5 @@ def get_quotes(symbols: str, api_key: str, region: str):
 
     response = requests.request("GET", url, headers=headers, params=querystring).json()
 
-
     return response
 
