@@ -90,4 +90,3 @@ def get_earnings(region: str, start_date: str, end_date: str, size: int, api_key
     response = requests.request("GET", url, headers=headers, params=querystring).json()
 
     return response
-
