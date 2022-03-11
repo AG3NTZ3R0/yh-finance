@@ -71,7 +71,7 @@ def get_summary(region: str, api_key: str):
 
 def get_earnings(region: str, start_date: str, end_date: str, size: int, api_key: str):
     """
-
+    Get recent earnings in the market.
 
     :param region: region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
     :param start_date: Unix timestamps in milliseconds. The value must be different from end_date and the value must be
