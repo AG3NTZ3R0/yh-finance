@@ -6,7 +6,7 @@ def get_quotes(region: str, symbols: str, api_key: str):
     Get live price quotes.
 
     :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
-    :param symbols: One or more comma seperated ticker symbols.
+    :param symbols: The symbol to get data, separated by comma to get data for multiple symbols.
     :param api_key: An API key from YH Finance API.
 
     :return: API response in JSON.
@@ -58,6 +58,28 @@ def get_summary(region: str, api_key: str):
     """
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-summary"
     querystring = {"region": region}
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
+
+
+def get_spark(symbols: str, interval: str, time_range: str, api_key: str):
+    """
+
+    :param symbols: The symbol to get data, separated by comma to get data for multiple symbols.
+    :param interval: One of the following: 5m, 15m, 1d, 1wk, 1mo.
+    :param time_range: One of the following: 1d, 5d, 3mo, 6mo, 1y, 5y, max.
+    :param api_key: An API Key from YH Finance API.
+
+    :return: API response in JSON.
+    """
+    url = "https://yh-finance.p.rapidapi.com/market/get-spark"
+    querystring = {"symbols": symbols, "interval": interval, "range": time_range}
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
