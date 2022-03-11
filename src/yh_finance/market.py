@@ -99,7 +99,7 @@ def get_trending_tickers(region: str, api_key: str):
     :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
     :param api_key: An API Key from YH Finance API.
 
-    :return: An API Key from YH Finance API.
+    :return: API response in JSON.
     """
     url = "https://yh-finance.p.rapidapi.com/market/get-trending-tickers"
     querystring = {"region": region}
@@ -114,6 +114,13 @@ def get_trending_tickers(region: str, api_key: str):
 
 
 def get_popular_watchlists(api_key: str):
+    """
+    Get popular watchlists in the market.
+
+    :param api_key: An API Key from YH Finance API.
+
+    :return: API response in JSON.
+    """
     url = "https://yh-finance.p.rapidapi.com/market/get-popular-watchlists"
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
