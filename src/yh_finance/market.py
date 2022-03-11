@@ -201,3 +201,19 @@ def get_watchlist_performance(user_id: str, portfolio_id: str, symbols: str, reg
     response = requests.request("GET", url, headers=headers, params=querystring).json()
 
     return response
+
+
+def get_watchlist_detail(user_id: str, portfolio_id: str, api_key: str):
+    url = "https://yh-finance.p.rapidapi.com/market/get-watchlist-detail"
+    querystring = {
+        "userId": user_id,
+        "pfId": portfolio_id
+    }
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
