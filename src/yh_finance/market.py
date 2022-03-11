@@ -204,6 +204,15 @@ def get_watchlist_performance(user_id: str, portfolio_id: str, symbols: str, reg
 
 
 def get_watchlist_detail(user_id: str, portfolio_id: str, api_key: str):
+    """
+    Get detail information of specific watchlist.
+
+    :param user_id: The value of userId field returned in get_popular_watchlists endpoint.
+    :param portfolio_id: The value of pfId field returned in get_popular_watchlists endpoint.
+    :param api_key: An API Key from YH Finance API.
+
+    :return: API response in JSON.
+    """
     url = "https://yh-finance.p.rapidapi.com/market/get-watchlist-detail"
     querystring = {
         "userId": user_id,
