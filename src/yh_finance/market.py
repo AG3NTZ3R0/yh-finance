@@ -90,3 +90,38 @@ def get_earnings(region: str, start_date: str, end_date: str, size: int, api_key
     response = requests.request("GET", url, headers=headers, params=querystring).json()
 
     return response
+
+
+def get_trending_tickers(region: str, api_key: str):
+    """
+    Get latest trending tickers in the market (Count 20).
+
+    :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
+    :param api_key: An API Key from YH Finance API.
+
+    :return: An API Key from YH Finance API.
+    """
+    url = "https://yh-finance.p.rapidapi.com/market/get-trending-tickers"
+    querystring = {"region": region}
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
+
+
+def get_popular_watchlists(api_key: str):
+    url = "https://yh-finance.p.rapidapi.com/market/get-popular-watchlists"
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+    response = requests.request("GET", url, headers=headers).json()
+
+    return response
+
+
+
