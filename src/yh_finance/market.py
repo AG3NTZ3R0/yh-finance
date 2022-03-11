@@ -9,7 +9,7 @@ def get_quotes(region: str, symbols: str, api_key: str):
     :param symbols: One or more comma seperated ticker symbols.
     :param api_key: An API key from YH Finance API.
 
-    :return: JSON API Response
+    :return: API response in JSON
     """
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-quotes"
     querystring = {"region": region, "symbols": symbols}
@@ -34,10 +34,31 @@ def get_movers(region: str, lang: str, count: int, api_key: str, start: int = 0)
     :param api_key: An API Key from YH Finance API.
     :param start: The starting offset for paging purpose.
 
-    :return: JSON API Response
+    :return: API response in JSON
     """
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-movers"
     querystring = {"region": region, "lang": lang, "count": count, "start": start}
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
+
+
+def get_summary(region: str, api_key: str):
+    """
+    Get live summary information of market by region.
+
+    :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
+    :param api_key: An API Key from YH Finance API.
+
+    :return: API response in JSON
+    """
+    url = "https://yh-finance.p.rapidapi.com/market/v2/get-summary"
+    querystring = {"region": region}
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
