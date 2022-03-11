@@ -70,6 +70,7 @@ def get_summary(region: str, api_key: str):
 
 def get_spark(symbols: str, interval: str, time_range: str, api_key: str):
     """
+    Used with get_trending_tickers endpoint together to draw brief chart.
 
     :param symbols: The symbol to get data, separated by comma to get data for multiple symbols.
     :param interval: One of the following: 5m, 15m, 1d, 1wk, 1mo.
