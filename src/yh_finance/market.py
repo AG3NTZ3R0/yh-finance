@@ -12,7 +12,10 @@ def get_quotes(region: str, symbols: str, api_key: str):
     :return: API response in JSON.
     """
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-quotes"
-    querystring = {"region": region, "symbols": symbols}
+    querystring = {
+        "region": region,
+        "symbols": symbols
+    }
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
@@ -36,7 +39,12 @@ def get_movers(region: str, lang: str, count: int, api_key: str, start: int = 0)
     :return: API response in JSON.
     """
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-movers"
-    querystring = {"region": region, "lang": lang, "count": count, "start": start}
+    querystring = {
+        "region": region,
+        "lang": lang,
+        "count": count,
+        "start": start
+    }
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
@@ -57,7 +65,9 @@ def get_summary(region: str, api_key: str):
     :return: API response in JSON.
     """
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-summary"
-    querystring = {"region": region}
+    querystring = {
+        "region": region
+    }
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
@@ -80,7 +90,11 @@ def get_spark(symbols: str, interval: str, time_range: str, api_key: str):
     :return: API response in JSON.
     """
     url = "https://yh-finance.p.rapidapi.com/market/get-spark"
-    querystring = {"symbols": symbols, "interval": interval, "range": time_range}
+    querystring = {
+        "symbols": symbols,
+        "interval": interval,
+        "range": time_range
+    }
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
@@ -104,7 +118,12 @@ def get_earnings(region: str, start_date: str, end_date: str, size: int, api_key
     :return: API response in JSON.
     """
     url = "https://yh-finance.p.rapidapi.com/market/get-earnings"
-    querystring = {"region": region, "startDate": start_date, "endDate": end_date, "size": size}
+    querystring = {
+        "region": region,
+        "startDate": start_date,
+        "endDate": end_date,
+        "size": size
+    }
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
@@ -125,7 +144,9 @@ def get_trending_tickers(region: str, api_key: str):
     :return: API response in JSON.
     """
     url = "https://yh-finance.p.rapidapi.com/market/get-trending-tickers"
-    querystring = {"region": region}
+    querystring = {
+        "region": region
+    }
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': api_key
@@ -154,4 +175,29 @@ def get_popular_watchlists(api_key: str):
     return response
 
 
+def get_watchlist_performance(user_id: str, portfolio_id: str, symbols: str, region: str, api_key: str):
+    """
+    Get performance information of specific watchlist.
 
+    :param user_id: The value of userId field returned in get_popular_watchlists endpoint.
+    :param portfolio_id: The value of pfId field returned in get_popular_watchlists endpoint.
+    :param symbols: The value of symbol field returned in auto_complete endpoint, separated by commas for multiple entities.
+    :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
+    :param api_key: An API Key from YH Finance API.
+
+    :return: API response in JSON.
+    """
+    url = "https://yh-finance.p.rapidapi.com/market/get-watchlist-performance"
+    querystring = {
+        "userId": user_id,
+        "pfId": portfolio_id,
+        "symbols": symbols,
+        "region": region
+    }
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
