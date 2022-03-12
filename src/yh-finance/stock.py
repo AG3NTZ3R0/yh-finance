@@ -1,13 +1,13 @@
 import requests
 
 
-def get_summary(symbol: str, region: str, rapid_api: str):
+def get_summary(symbol: str, region: str, api_key: str):
     """
     Get data in summary section.
 
     :param symbol: The symbol to get data.
     :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
-    :param rapid_api: An API key from YH Finance API.
+    :param api_key: An API key from YH Finance API.
 
     :return: API response in JSON.
     """
