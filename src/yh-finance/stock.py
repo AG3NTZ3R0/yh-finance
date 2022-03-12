@@ -110,3 +110,26 @@ def get_chart(interval: str, symbol: str, time_range: str, region: str, include_
     response = requests.request("GET", url, headers=headers, params=querystring).json()
 
     return response
+
+
+def get_statistics(symbol: str, api_key: str):
+    """
+    Get data in statistics section.
+
+    :param symbol: The symbol to get data for.
+    :param api_key: An API key from YH Finance API.
+
+    :return: API response in JSON.
+    """
+    url = "https://yh-finance.p.rapidapi.com/stock/v3/get-statistics"
+    querystring = {
+        "symbol": symbol
+    }
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
