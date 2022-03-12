@@ -215,8 +215,8 @@ def get_timeseries(symbol: str, start_date: str, end_date: str, region: str, api
     Get quarterly data in financial section.
 
     :param symbol: The symbol to get data for.
-    :param start_date: Epoch timestamps in milliseconds. The value must be different from end_date and the value must be the start of a day to get all the data from the day.
-    :param end_date: Epoch timestamps in milliseconds. The value must be different from start_date and the value must be the start of the next day to get all the data from the previous day.
+    :param start_date: Epoch timestamp in milliseconds. The value must be different from end_date and the value must be the start of a day to get all the data from the day.
+    :param end_date: Epoch timestamp in milliseconds. The value must be different from start_date and the value must be the start of the next day to get all the data from the previous day.
     :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
     :param api_key: An API key from YH Finance API.
 
@@ -302,6 +302,33 @@ def get_analysis(symbol: str, region: str, api_key: str):
     url = "https://yh-finance.p.rapidapi.com/stock/v2/get-analysis"
     querystring = {
         "symbol": symbol,
+        "region": region
+    }
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
+
+
+def get_options(symbol: str, date: str, region: str, api_key: str):
+    """
+    Get data in options section.
+
+    :param symbol: The symbol to get data for.
+    :param date: Epoch timestamp in seconds. The value must be at the start of a day to get all data.
+    :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
+    :param api_key: An API key from YH Finance API.
+
+    :return: API response in JSON.
+    """
+    url = "https://yh-finance.p.rapidapi.com/stock/v2/get-options"
+    querystring = {
+        "symbol": symbol,
+        "date": date,
         "region": region
     }
     headers = {
