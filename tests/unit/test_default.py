@@ -7,7 +7,7 @@ from src.yh_finance.default import *
 class TestDefaultEndpoints(unittest.TestCase):
     def test_auto_complete(self):
         """
-        Test that it is communicating with the YH Finance API.
+        Test that the auto_complete function is communicating with the YH Finance API.
         """
         json_resp = auto_complete(query='tesla',
                                   region='US',

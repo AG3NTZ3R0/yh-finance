@@ -81,7 +81,7 @@ class TestMarketEndpoints(unittest.TestCase):
 
     def test_get_watchlist_detail(self):
         """
-        Test that the get_watchlist_performance function is communicating with the YH Finance API.
+        Test that the get_watchlist_detail function is communicating with the YH Finance API.
         """
         json_resp = get_watchlist_detail(user_id='X3NJ2A7VDSABUI4URBWME2PZNM',
                                          portfolio_id='the_berkshire_hathaway_portfolio',
