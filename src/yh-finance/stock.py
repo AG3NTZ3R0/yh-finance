@@ -262,3 +262,28 @@ def get_cash_flow(symbol: str, region: str, api_key: str):
     response = requests.request("GET", url, headers=headers, params=querystring).json()
 
     return response
+
+
+def get_balance_sheet(symbol: str, region: str, api_key: str):
+    """
+    Get balance sheet data in financial section.
+
+    :param symbol: The symbol to get data for.
+    :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
+    :param api_key: An API key from YH Finance API.
+
+    :return: API response in JSON.
+    """
+    url = "https://yh-finance.p.rapidapi.com/stock/v2/get-balance-sheet"
+    querystring = {
+        "symbol": symbol,
+        "region": region
+    }
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
