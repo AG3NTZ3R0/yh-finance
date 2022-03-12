@@ -19,9 +19,9 @@ class TestMarketEndpoints(unittest.TestCase):
         Test that it is communicating with the YH Finance API.
         """
         json_resp = get_movers(region='US',
-                                   lang='en-US',
-                                   count=5,
-                                   api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                               lang='en-US',
+                               count=5,
+                               api_key=os.environ.get('YH_FINANCE_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
 
