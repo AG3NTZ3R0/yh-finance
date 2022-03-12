@@ -74,8 +74,8 @@ def get_upgrades_downgrades(symbol: str, region: str, api_key: str):
     return response
 
 
-def get_chart(interval: str, symbol: str, time_range: str, region: str, include_pre_post: bool, use_yahoo_id: bool,
-              include_adj_close: bool, events: str, api_key: str):
+def get_chart(interval: str, symbol: str, time_range: str, region: str, include_pre_post: str, use_yahoo_id: str,
+              include_adj_close: str, events: str, api_key: str):
     """
     Get data to draw full screen chart.
 
@@ -198,6 +198,35 @@ def get_financials(symbol: str, region: str, api_key: str):
     url = "https://yh-finance.p.rapidapi.com/stock/v2/get-financials"
     querystring = {
         "symbol": symbol,
+        "region": region
+    }
+    headers = {
+        'x-rapidapi-host': "yh-finance.p.rapidapi.com",
+        'x-rapidapi-key': api_key
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    return response
+
+
+def get_timeseries(symbol: str, start_date: str, end_date: str, region: str, api_key: str):
+    """
+    Get quarterly data in financial section.
+
+    :param symbol: The symbol to get data for.
+    :param start_date: Epoch timestamps in milliseconds. The value must be different from end_date and the value must be the start of a day to get all the data from the day.
+    :param end_date: Epoch timestamps in milliseconds. The value must be different from start_date and the value must be the start of the next day to get all the data from the previous day.
+    :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
+    :param api_key: An API key from YH Finance API.
+
+    :return: API response in JSON.
+    """
+    url = "https://yh-finance.p.rapidapi.com/stock/v2/get-timeseries"
+    querystring = {
+        "symbol": symbol,
+        "period1": start_date,
+        "period2": end_date,
         "region": region
     }
     headers = {
