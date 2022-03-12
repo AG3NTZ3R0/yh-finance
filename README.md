@@ -245,5 +245,6 @@ json_resp = yhf.get_conversation_list(symbol='AAPL',
                                       region='US',
                                       user_activity='true',
                                       sort_by='createdAt',
-                                      off='0')
+                                      off='0',
+                                      api_key='YOUR_API_KEY')
 ```
