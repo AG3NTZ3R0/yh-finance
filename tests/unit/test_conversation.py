@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from src.yh_finance.conversation import get_conversation_list
+from src.yh_finance.conversation import *
 
 
 class TestGetConversationList(unittest.TestCase):
