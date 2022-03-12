@@ -4,8 +4,8 @@ import unittest
 from src.yh_finance.conversation import *
 
 
-class TestGetConversationList(unittest.TestCase):
-    def test_json_resp(self):
+class TestConversationEndpoints(unittest.TestCase):
+    def test_get_conversation_list(self):
         """
         Test that it is communicating with the YH Finance API.
         """

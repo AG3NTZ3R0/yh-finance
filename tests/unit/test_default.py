@@ -4,8 +4,8 @@ import unittest
 from src.yh_finance.default import *
 
 
-class TestAutoComplete(unittest.TestCase):
-    def test_json_resp(self):
+class TestDefaultEndpoints(unittest.TestCase):
+    def test_auto_complete(self):
         """
         Test that it is communicating with the YH Finance API.
         """
