@@ -18,7 +18,7 @@ def get_summary(symbol: str, region: str, api_key: str):
     }
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
-        'x-rapidapi-key': rapid_api
+        'x-rapidapi-key': api_key
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring).json()
