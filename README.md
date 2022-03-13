@@ -114,8 +114,8 @@ json_resp = yhf.get_summary(symbol='AMRN',
 
 Get symbols similar to the specified one.
 ```python
-json_resp = yhf.get_recommendation(symbol='INTC',
-                                   api_key='YOUR_API_KEY')
+json_resp = yhf.get_recommendations(symbol='INTC',
+                                    api_key='YOUR_API_KEY')
 ```
 
 Get upgrade and downgrade data.
@@ -144,7 +144,7 @@ json_resp = yhf.get_statistics(symbol='JD',
                                api_key='YOUR_API_KEY')
 ```
 
-Get data in historical data section.
+Get data in historical section.
 ```python
 json_resp = yhf.get_historical_data(symbol='AMRN',
                                     region='US',
@@ -212,8 +212,8 @@ json_resp = yhf.get_holders(symbol='AMRN',
 
 Get data in holdings section. The symbol must be a mutual fund stock.
 ```python
-json_resp = yhf.get_holings(symbol='AMRN',
-                            api_key='YOUR_API_KEY')
+json_resp = yhf.get_holdings(symbol='AMRN',
+                             api_key='YOUR_API_KEY')
 ```
 
 Get brief reports relating to the symbol.

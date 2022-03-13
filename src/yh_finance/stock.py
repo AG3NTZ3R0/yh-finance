@@ -137,7 +137,7 @@ def get_statistics(symbol: str, api_key: str):
 
 def get_historical_data(symbol: str, region: str, api_key: str):
     """
-    Get data in historical data section.
+    Get data in historical section.
 
     :param symbol: The symbol to get data for.
     :param region: One of the following: US, BR, AU, CA, FR, DE, HK, IN, IT, ES, GB, SG.
