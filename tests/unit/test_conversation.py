@@ -15,7 +15,7 @@ class TestConversationEndpoints(unittest.TestCase):
                                           user_activity='true',
                                           sort_by='createdAt',
                                           off='0',
-                                          api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                                          api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
 

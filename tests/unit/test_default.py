@@ -11,7 +11,7 @@ class TestDefaultEndpoints(unittest.TestCase):
         """
         json_resp = auto_complete(query='tesla',
                                   region='US',
-                                  api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                                  api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
 

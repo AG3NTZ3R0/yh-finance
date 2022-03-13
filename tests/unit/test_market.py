@@ -11,7 +11,7 @@ class TestMarketEndpoints(unittest.TestCase):
         """
         json_resp = get_quotes(region='US',
                                symbols='AMD,IBM,AAPL',
-                               api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                               api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_movers(self):
@@ -21,7 +21,7 @@ class TestMarketEndpoints(unittest.TestCase):
         json_resp = get_movers(region='US',
                                lang='en-US',
                                count=5,
-                               api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                               api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_summary(self):
@@ -29,7 +29,7 @@ class TestMarketEndpoints(unittest.TestCase):
         Test that the get_summary function is communicating with the YH Finance API.
         """
         json_resp = get_summary(region='US',
-                                api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                                api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_spark(self):
@@ -39,7 +39,7 @@ class TestMarketEndpoints(unittest.TestCase):
         json_resp = get_spark(symbols='AMZN,AAPL,WDC,REYN,AZN',
                               interval='1m',
                               time_range='1d',
-                              api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                              api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_earnings(self):
@@ -50,7 +50,7 @@ class TestMarketEndpoints(unittest.TestCase):
                                  start_date='1585155600000',
                                  end_date='1589475600000',
                                  size=10,
-                                 api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                                 api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_trending_tickers(self):
@@ -58,14 +58,14 @@ class TestMarketEndpoints(unittest.TestCase):
         Test that the get_trending_tickers function is communicating with the YH Finance API.
         """
         json_resp = get_trending_tickers(region='US',
-                                         api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                                         api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_popular_watchlists(self):
         """
         Test that the get_popular_watchlists function is communicating with the YH Finance API.
         """
-        json_resp = get_popular_watchlists(api_key=os.environ.get('YH_FINANCE_API_KEY'))
+        json_resp = get_popular_watchlists(api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_watchlist_performance(self):
@@ -76,7 +76,7 @@ class TestMarketEndpoints(unittest.TestCase):
                                               portfolio_id='the_berkshire_hathaway_portfolio',
                                               symbols='^GSPC',
                                               region='US',
-                                              api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                                              api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
     def test_get_watchlist_detail(self):
@@ -85,7 +85,7 @@ class TestMarketEndpoints(unittest.TestCase):
         """
         json_resp = get_watchlist_detail(user_id='X3NJ2A7VDSABUI4URBWME2PZNM',
                                          portfolio_id='the_berkshire_hathaway_portfolio',
-                                         api_key=os.environ.get('YH_FINANCE_API_KEY'))
+                                         api_key=os.environ.get('RAPID_API_KEY'))
         self.assertEqual(type(json_resp), dict)
 
 
