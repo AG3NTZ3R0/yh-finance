@@ -74,8 +74,17 @@ def get_upgrades_downgrades(symbol: str, region: str, api_key: str):
     return response
 
 
-def get_chart(interval: str, symbol: str, time_range: str, region: str, include_pre_post: str, use_yahoo_id: str,
-              include_adj_close: str, events: str, api_key: str):
+def get_chart(
+        interval: str,
+        symbol: str,
+        time_range: str,
+        region: str,
+        include_pre_post: str,
+        use_yahoo_id: str,
+        include_adj_close: str,
+        events: str,
+        api_key: str
+):
     """
     Get data to draw full screen chart.
 

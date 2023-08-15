@@ -1,8 +1,14 @@
 import requests
 
 
-def get_conversation_list(symbol: str, message_board_id: str, region: str, user_activity: str, sort_by: str, off: str,
-                          api_key: str):
+def get_conversation_list(
+        symbol: str,
+        message_board_id: str,
+        region: str,
+        user_activity: str,
+        sort_by: str, off: str,
+        api_key: str
+):
     """
     Get conversations list relating to a symbol.
 
