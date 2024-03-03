@@ -7,5 +7,5 @@ __pycache__
 # Python Development Environment
 build
 dist
-src/cnbc.egg-info
+src/yh_finance.egg-info
 main.py

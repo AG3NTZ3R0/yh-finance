@@ -27,7 +27,7 @@ If applicable, add screenshots to help explain your problem.
  - IDE [e.g. VSCode, PyCharm]
  - Python Version [e.g. 3.12]
  - Pip Version [e.g. 22]
- - CNBC Version [e.g. 1.0.0]
+ - YH Finance Version [e.g. 1.0.0]
 
 ### Additional Context
 Add any other context about the problem here.
