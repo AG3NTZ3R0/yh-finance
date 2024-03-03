@@ -1,0 +1,11 @@
+# JetBrains
+.idea
+
+# PyCache
+__pycache__
+
+# Python Development Environment
+build
+dist
+src/yh_finance.egg-info
+main.py
